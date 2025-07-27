@@ -6,17 +6,33 @@
   <title>Kartikaye Azad | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: #0f0f0f;
       color: #f1f1f1;
+      overflow: hidden;
+    }
+
+    #intro-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      object-fit: cover;
+      z-index: 999;
+    }
+
+    #main-content {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
       text-align: center;
+      min-height: 100vh;
       padding: 2rem;
     }
 
@@ -79,37 +95,55 @@
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      .links a {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-      }
-      .resume-btn {
-        font-size: 0.9rem;
-      }
+      h1 { font-size: 2.2rem; }
+      .links a { padding: 0.5rem 1rem; font-size: 0.9rem; }
+      .resume-btn { font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
 
-  <h1>Kartikaye Azad</h1>
-  <p>Physicist | Builder | Creator<br>
-     I make cool things — from hand-wired keyboards to mini retro cameras and more.</p>
+  <!-- Intro Video -->
+  <video id="intro-video" autoplay muted playsinline onended="showMainContent()">
+    <source src="intro.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-  <div class="links">
-    <a href="https://youtube.com/yourchannel" target="_blank">YouTube</a>
-    <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
-    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-    <a href="https://fiverr.com/yourprofile" target="_blank">Fiverr</a>
+  <!-- Main Website Content -->
+  <div id="main-content">
+    <h1>Kartikaye Azad</h1>
+    <p>Physicist | Builder | Creator<br>
+       I make cool things — from hand-wired keyboards to mini retro cameras and more.</p>
+
+    <div class="links">
+      <a href="https://youtube.com/yourchannel" target="_blank">YouTube</a>
+      <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+      <a href="https://fiverr.com/yourprofile" target="_blank">Fiverr</a>
+    </div>
+
+    <a class="resume-btn" href="https://drive.google.com/your-resume-link" target="_blank">View Resume</a>
+
+    <footer>
+      <p>© 2025 Kartikaye Azad</p>
+    </footer>
   </div>
 
-  <a class="resume-btn" href="https://drive.google.com/your-resume-link" target="_blank">View Resume</a>
+  <script>
+    function showMainContent() {
+      const video = document.getElementById("intro-video");
+      const content = document.getElementById("main-content");
+      video.style.display = "none";
+      content.style.opacity = "1";
+      content.style.pointerEvents = "auto";
+    }
 
-  <footer>
-    <p>© 2025 Kartikaye Azad</p>
-  </footer>
-
+    // If video fails to play, show content after timeout
+    setTimeout(() => {
+      if (document.getElementById("main-content").style.opacity === "0") {
+        showMainContent();
+      }
+    }, 8000); // fallback delay in milliseconds
+  </script>
 </body>
 </html>
