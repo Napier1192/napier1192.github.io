@@ -1,192 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kartikaye | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-mRyL4k8a4n4ufFjqFyGxEhtmcO7n5/v49w6CeFczzbZ4VzjmwKXlY7ZMHZ+LgWciMJCIwN91DbwZc+nNBw1TA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body, html {
-      width: 100%;
-      height: 100%;
-      font-family: 'Inter', sans-serif;
-      overflow: hidden;
-      background-color: #000;
-    }
-
-    #intro-video {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      object-fit: cover;
-      z-index: 999;
-    }
-
-    #main-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 100vh;
-      width: 100vw;
-      padding: 2rem;
-      background: url('bg.jpg') center/cover no-repeat fixed;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 1s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      color: #f1f1f1;
-      text-shadow: 0 0 5px #000;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin-bottom: 2rem;
-      color: #ccc;
-      text-shadow: 0 0 5px #000;
-    }
-
-    .resume-btn {
-      position: fixed;
-      top: 20px;
-      right: 30px;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #000;
-      background-color: #f1f1f1;
-      border: none;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-      z-index: 1000;
-    }
-
-    .resume-btn:hover {
-      background-color: #ddd;
-    }
-
-    .social-icons {
-      position: fixed;
-      bottom: 20px;
-      right: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 1000;
-    }
-
-    .social-icons a {
-      color: #fff;
-      font-size: 1.5rem;
-      opacity: 0.5;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      opacity: 1;
-      transform: scale(1.1);
-    }
-
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #aaa;
-      text-shadow: 0 0 5px #000;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      .resume-btn { font-size: 0.9rem; padding: 0.5rem 1rem; }
-      .social-icons a { font-size: 1.3rem; }
-    }
-
-    .icon-links {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  opacity: 0.8;
-  z-index: 10;
-}
-
-.icon-links a {
-  color: white;
-  transition: transform 0.2s;
-}
-
-.icon-links a:hover {
-  transform: scale(1.2);
-}
-  </style>
-
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
+<body>
   <!-- Splash Video -->
   <video id="intro-video" autoplay muted playsinline onended="showMainContent()">
-    <source src="intro.mp4" type="video/mp4">
+    <source src="videos/intro.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
   <!-- Resume Button -->
-  <a class="resume-btn" href="https://drive.google.com/your-resume-link" target="_blank">View Resume</a>
+  <a class="resume-btn" href="pdfs/resume.pdf" target="_blank">View Resume</a>
 
   <!-- Floating Social Icons -->
-<div class="icon-links">
-  <a href="https://www.youtube.com/@KartikayeDoesStuff" target="_blank"><i class="fab fa-youtube"></i></a>
-  <a href="https://www.linkedin.com/in/kartikaye-796ab1112/" target="_blank"><i class="fab fa-linkedin"></i></a>
-  <a href="https://www.instagram.com/napier1192/" target="_blank"><i class="fab fa-instagram"></i></a>
-  <a href="https://www.fiverr.com/lumosminima/vector-trace-illustrate-make-vaporwave-and-outurn-style-art" target="_blank"><i class="fas fa-briefcase"></i></a>
-</div>
+  <div class="icon-links">
+    <a href="https://www.youtube.com/@KartikayeDoesStuff" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.linkedin.com/in/kartikaye-796ab1112/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/napier1192/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.fiverr.com/lumosminima/vector-trace-illustrate-make-vaporwave-and-outurn-style-art" target="_blank"><i class="fas fa-briefcase"></i></a>
+  </div>
 
   <!-- Main Website Content -->
   <div id="main-content">
-    <h1>Kartikaye</h1>
-    <p>Physicist | Hobbyist<br>
-      
+    <h1 class="fade-in">Kartikaye</h1>
+    <p class="fade-in">Physicist | Hobbyist</p>
 
     <footer>
       <p>© 2025 Kartikaye</p>
     </footer>
   </div>
 
-  <script>
-    function showMainContent() {
-      document.getElementById("intro-video").style.display = "none";
-      const main = document.getElementById("main-content");
-      main.style.opacity = "1";
-      main.style.pointerEvents = "auto";
-      document.body.style.overflow = "auto";
-    }
-
-    // Fallback timeout in case video doesn’t trigger onended
-    setTimeout(() => {
-      if (document.getElementById("main-content").style.opacity === "0") {
-        showMainContent();
-      }
-    }, 8000);
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
