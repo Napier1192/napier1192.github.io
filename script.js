@@ -1,20 +1,22 @@
-function showMainContent() {
-  document.getElementById("intro-video").style.display = "none";
-  const main = document.getElementById("main-content");
-  main.style.opacity = "1";
-  main.style.pointerEvents = "auto";
-  document.body.style.overflow = "auto";
+document.addEventListener("DOMContentLoaded", () => {
+  const introVideo = document.getElementById("intro-video");
+  const mainContent = document.getElementById("main-content");
 
-  // Trigger animation for fade-in elements
-  document.querySelectorAll('.fade-in').forEach(el => {
-    el.style.animationDelay = "0.5s";
-    el.classList.add('animated');
+  // When video ends, show content
+  introVideo.addEventListener("ended", () => {
+    introVideo.style.display = "none";
+    mainContent.style.opacity = "1";
+    mainContent.style.pointerEvents = "auto";
+    document.body.style.overflow = "auto";
   });
-}
 
-// Fallback in case video fails
-setTimeout(() => {
-  if (document.getElementById("main-content").style.opacity === "0") {
-    showMainContent();
-  }
-}, 8000);
+  // Fallback after 8s if video fails to load or autoplay
+  setTimeout(() => {
+    if (mainContent.style.opacity === "0") {
+      introVideo.style.display = "none";
+      mainContent.style.opacity = "1";
+      mainContent.style.pointerEvents = "auto";
+      document.body.style.overflow = "auto";
+    }
+  }, 8000);
+});
