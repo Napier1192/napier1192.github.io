@@ -6,13 +6,18 @@
   <title>Kartikaye Azad | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    body {
+    body, html {
+      width: 100%;
+      height: 100%;
       font-family: 'Inter', sans-serif;
-      background-color: #0f0f0f;
-      color: #f1f1f1;
       overflow: hidden;
+      background-color: #000;
     }
 
     #intro-video {
@@ -24,22 +29,28 @@
     }
 
     #main-content {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 1s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       min-height: 100vh;
+      width: 100vw;
       padding: 2rem;
+      background: url('bg.jpg') center/cover no-repeat fixed;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
       font-size: 3rem;
       font-weight: 800;
       margin-bottom: 0.5rem;
+      color: #f1f1f1;
+      text-shadow: 0 0 5px #000;
     }
 
     p {
@@ -47,6 +58,7 @@
       max-width: 600px;
       margin-bottom: 2rem;
       color: #ccc;
+      text-shadow: 0 0 5px #000;
     }
 
     .links {
@@ -61,8 +73,9 @@
       text-decoration: none;
       color: #fff;
       padding: 0.6rem 1.2rem;
-      border: 1px solid #888;
+      border: 1px solid #ccc;
       border-radius: 8px;
+      background: rgba(0, 0, 0, 0.4);
       transition: all 0.3s ease;
     }
 
@@ -91,7 +104,8 @@
     footer {
       margin-top: 3rem;
       font-size: 0.9rem;
-      color: #666;
+      color: #aaa;
+      text-shadow: 0 0 5px #000;
     }
 
     @media (max-width: 600px) {
@@ -103,7 +117,7 @@
 </head>
 <body>
 
-  <!-- Intro Video -->
+  <!-- Splash Video -->
   <video id="intro-video" autoplay muted playsinline onended="showMainContent()">
     <source src="intro.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -131,19 +145,19 @@
 
   <script>
     function showMainContent() {
-      const video = document.getElementById("intro-video");
-      const content = document.getElementById("main-content");
-      video.style.display = "none";
-      content.style.opacity = "1";
-      content.style.pointerEvents = "auto";
+      document.getElementById("intro-video").style.display = "none";
+      const main = document.getElementById("main-content");
+      main.style.opacity = "1";
+      main.style.pointerEvents = "auto";
+      document.body.style.overflow = "auto";
     }
 
-    // If video fails to play, show content after timeout
+    // Fallback timeout in case video doesn’t trigger onended
     setTimeout(() => {
       if (document.getElementById("main-content").style.opacity === "0") {
         showMainContent();
       }
-    }, 8000); // fallback delay in milliseconds
+    }, 8000); // change if your video is longer/shorter
   </script>
 </body>
 </html>
