@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -116,7 +117,28 @@
       .resume-btn { font-size: 0.9rem; padding: 0.5rem 1rem; }
       .social-icons a { font-size: 1.3rem; }
     }
+
+    .icon-links {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.icon-links a {
+  color: white;
+  transition: transform 0.2s;
+}
+
+.icon-links a:hover {
+  transform: scale(1.2);
+}
   </style>
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
 
@@ -130,12 +152,12 @@
   <a class="resume-btn" href="https://drive.google.com/your-resume-link" target="_blank">View Resume</a>
 
   <!-- Floating Social Icons -->
-  <div class="social-icons">
-    <a href="https://www.youtube.com/@KartikayeDoesStuff" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.instagram.com/napier1192/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/in/kartikaye-796ab1112/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://www.fiverr.com/lumosminima/vector-trace-illustrate-make-vaporwave-and-outurn-style-art" target="_blank" title="Fiverr"><i class="fas fa-briefcase"></i></a>
-  </div>
+<div class="icon-links">
+  <a href="https://www.youtube.com/@KartikayeDoesStuff" target="_blank"><i data-feather="youtube"></i></a>
+  <a href="https://www.linkedin.com/in/kartikaye-796ab1112/" target="_blank"><i data-feather="linkedin"></i></a>
+  <a href="https://www.instagram.com/napier1192/" target="_blank"><i data-feather="instagram"></i></a>
+  <a href="https://www.fiverr.com/kartikaye?public_mode=true" target="_blank"><i data-feather="briefcase"></i></a>
+</div>
 
   <!-- Main Website Content -->
   <div id="main-content">
@@ -164,5 +186,8 @@
       }
     }, 8000);
   </script>
+  <script>
+  feather.replace();
+</script>
 </body>
 </html>
