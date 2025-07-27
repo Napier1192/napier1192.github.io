@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kartikaye Azad | Portfolio</title>
+  <title>Kartikaye | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-mRyL4k8a4n4ufFjqFyGxEhtmcO7n5/v49w6CeFczzbZ4VzjmwKXlY7ZMHZ+LgWciMJCIwN91DbwZc+nNBw1TA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     * {
       box-sizing: border-box;
@@ -61,31 +62,10 @@
       text-shadow: 0 0 5px #000;
     }
 
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-
-    .links a {
-      text-decoration: none;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.4);
-      transition: all 0.3s ease;
-    }
-
-    .links a:hover {
-      background-color: #fff;
-      color: #000;
-      border-color: #fff;
-    }
-
     .resume-btn {
+      position: fixed;
+      top: 20px;
+      right: 30px;
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
       font-weight: 600;
@@ -95,10 +75,33 @@
       border-radius: 10px;
       text-decoration: none;
       transition: background 0.3s ease;
+      z-index: 1000;
     }
 
     .resume-btn:hover {
       background-color: #ddd;
+    }
+
+    .social-icons {
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 1.5rem;
+      opacity: 0.5;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      opacity: 1;
+      transform: scale(1.1);
     }
 
     footer {
@@ -110,8 +113,8 @@
 
     @media (max-width: 600px) {
       h1 { font-size: 2.2rem; }
-      .links a { padding: 0.5rem 1rem; font-size: 0.9rem; }
-      .resume-btn { font-size: 0.9rem; }
+      .resume-btn { font-size: 0.9rem; padding: 0.5rem 1rem; }
+      .social-icons a { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -123,20 +126,22 @@
     Your browser does not support the video tag.
   </video>
 
+  <!-- Resume Button -->
+  <a class="resume-btn" href="https://drive.google.com/your-resume-link" target="_blank">View Resume</a>
+
+  <!-- Floating Social Icons -->
+  <div class="social-icons">
+    <a href="https://www.youtube.com/@KartikayeDoesStuff" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.instagram.com/napier1192/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/kartikaye-796ab1112/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.fiverr.com/lumosminima/vector-trace-illustrate-make-vaporwave-and-outurn-style-art" target="_blank" title="Fiverr"><i class="fas fa-briefcase"></i></a>
+  </div>
+
   <!-- Main Website Content -->
   <div id="main-content">
-    <h1>Kartikaye Azad</h1>
-    <p>Physicist | Builder | Creator<br>
+    <h1>Kartikaye</h1>
+    <p>Physicist | Hobbyist<br>
        I make cool things — from hand-wired keyboards to mini retro cameras and more.</p>
-
-    <div class="links">
-      <a href="https://youtube.com/yourchannel" target="_blank">YouTube</a>
-      <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
-      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-      <a href="https://fiverr.com/yourprofile" target="_blank">Fiverr</a>
-    </div>
-
-    <a class="resume-btn" href="https://drive.google.com/your-resume-link" target="_blank">View Resume</a>
 
     <footer>
       <p>© 2025 Kartikaye Azad</p>
@@ -157,7 +162,7 @@
       if (document.getElementById("main-content").style.opacity === "0") {
         showMainContent();
       }
-    }, 8000); // change if your video is longer/shorter
+    }, 8000);
   </script>
 </body>
 </html>
