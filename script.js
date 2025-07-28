@@ -1,22 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const introVideo = document.getElementById("intro-video");
-  const mainContent = document.getElementById("main-content");
-
-  // When video ends, show content
-  introVideo.addEventListener("ended", () => {
-    introVideo.style.display = "none";
-    mainContent.style.opacity = "1";
-    mainContent.style.pointerEvents = "auto";
-    document.body.style.overflow = "auto";
-  });
-
-  // Fallback after 8s if video fails to load or autoplay
-  setTimeout(() => {
-    if (mainContent.style.opacity === "0") {
-      introVideo.style.display = "none";
-      mainContent.style.opacity = "1";
-      mainContent.style.pointerEvents = "auto";
-      document.body.style.overflow = "auto";
+// Fade-in elements on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
     }
-  }, 8000);
+  });
+}, {
+  threshold: 0.1
+});
+
+document.querySelectorAll('.fade-in-scroll').forEach(elem => {
+  observer.observe(elem);
 });
