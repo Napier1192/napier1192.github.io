@@ -14,6 +14,14 @@ function show_story() {
   $('.story').fadeIn(600);
   $('.show-button').addClass('hide');
 }
+function scrollCarousel(direction) {
+  const track = document.getElementById("videoTrack");
+  const scrollAmount = track.clientWidth * 0.9; // adjust scroll amount
+  track.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
 
 // Scroll animations using ScrollReveal
 ScrollReveal().reveal('.scroll-animation', {
