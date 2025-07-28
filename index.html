@@ -11,12 +11,6 @@
 </head>
 
 <body>
-  <!-- Splash Video -->
-  <video id="intro-video" autoplay muted playsinline onended="showMainContent()">
-    <source src="videos/intro.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
   <!-- Resume Button -->
   <a class="resume-btn" href="pdfs/resume.pdf" target="_blank">View Resume</a>
 
@@ -29,7 +23,7 @@
   </div>
 
   <!-- Main Website Content -->
-  <div id="main-content">
+  <div id="main-content" style="opacity: 1; pointer-events: auto;">
     <h1 class="fade-in">Kartikaye</h1>
     <p class="fade-in">Physicist | Hobbyist</p>
 
@@ -38,6 +32,7 @@
     </footer>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Removed script.js because it's no longer needed -->
 </body>
+
 </html>
