@@ -101,3 +101,81 @@ footer {
     transform: translateY(0);
   }
 }
+
+.video-carousel {
+  padding: 2rem;
+  position: relative;
+  background: #f9f9f9;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.carousel-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.video-tile {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 170px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #000;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.video-tile iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.carousel-btn {
+  background-color: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-btn.left {
+  left: 0;
+}
+
+.carousel-btn.right {
+  right: 0;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0,0,0,0.8);
+}
