@@ -14,16 +14,15 @@ function show_story() {
   $('.story').fadeIn(600);
   $('.show-button').addClass('hide');
 }
+
 function scrollCarousel(direction) {
-  const track = document.getElementById("videoTrack");
-  const scrollAmount = track.clientWidth * 0.9; // adjust scroll amount
+  const track = document.getElementById("youtubeTrack");
+  const scrollAmount = track.clientWidth * 0.9;
   track.scrollBy({
     left: direction * scrollAmount,
     behavior: 'smooth'
   });
-}
-
-// Scroll animations using ScrollReveal
+}// Scroll animations using ScrollReveal
 ScrollReveal().reveal('.scroll-animation', {
   distance: "50px",
   opacity: 0,
