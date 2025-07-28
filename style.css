@@ -6,9 +6,9 @@
 
 body, html {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   font-family: 'Inter', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #000;
 }
 
@@ -21,11 +21,11 @@ body, html {
   justify-content: center;
   text-align: center;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding: 2rem;
   background: url('images/bg.jpg') center/cover no-repeat fixed;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 1;
+  pointer-events: auto;
   transition: opacity 1s ease;
   position: relative;
   z-index: 1;
@@ -292,6 +292,10 @@ section h2 {
   text-shadow: none;
   font-weight: 800;
   text-align: left;
+}
+
+#artwork h2 {
+  text-shadow: 0 2px 16px rgba(255,255,255,0.7), 0 1px 2px #000;
 }
 
 #main-content, .projects-grid, .artwork-grid {
