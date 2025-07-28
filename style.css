@@ -35,6 +35,7 @@ h1, p {
   color: #f1f1f1;
   text-shadow: 0 0 5px #000;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 p {
@@ -46,6 +47,9 @@ footer {
   margin-top: 3rem;
   font-size: 0.9rem;
   color: #aaa;
+  text-align: left;
+  width: 100%;
+  position: static;
 }
 
 .resume-btn {
@@ -173,46 +177,50 @@ footer {
 
 /* Artwork Gallery Styles */
 .artwork-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin: 3rem 0;
   max-width: 1000px;
-  justify-items: center;
+  align-items: flex-start;
 }
 .artwork-item {
-  background: rgba(30, 30, 60, 0.7);
-  border-radius: 18px;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
-  overflow: hidden;
-  transition: transform 0.4s cubic-bezier(.25,1.7,.45,.87), box-shadow 0.3s;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  transition: none;
   position: relative;
   width: 100%;
-  max-width: 320px;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .artwork-item img {
   width: 100%;
+  max-width: 1000px;
+  height: auto;
   display: block;
-  border-radius: 18px 18px 0 0;
-  filter: brightness(0.95) saturate(1.2) drop-shadow(0 0 10px #0ff6);
-  transition: filter 0.3s;
+  border-radius: 0;
+  filter: none;
+  transition: box-shadow 0.3s, filter 0.3s;
+  box-shadow: none;
 }
-.artwork-item:hover {
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow: 0 12px 40px 0 #0ff8, 0 0 30px #f0f;
-}
-.artwork-item:hover img {
-  filter: brightness(1.1) saturate(1.4) drop-shadow(0 0 20px #f0f8);
+.artwork-item img:hover {
+  box-shadow: 0 0 32px 0 rgba(255,255,255,0.5);
+  filter: brightness(1.05);
 }
 .artwork-info {
-  padding: 1rem;
+  padding: 0.5rem 0 0.5rem 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  background: rgba(20, 20, 40, 0.8);
-  border-radius: 0 0 18px 18px;
+  background: none;
+  border-radius: 0;
   color: #fff;
   font-size: 1rem;
+  width: 100%;
 }
 .pdf-link {
   color: #ff5af7;
@@ -277,7 +285,14 @@ section h2 {
   color: #fff;
   margin-bottom: 2rem;
   letter-spacing: 2px;
-  text-shadow: 0 0 10px #0ff, 0 0 20px #f0f;
+  text-shadow: none;
+  font-weight: 800;
+  text-align: left;
+}
+
+#main-content, .projects-grid, .artwork-grid {
+  align-items: flex-start;
+  text-align: left;
 }
 
 /* Custom Cursor */
