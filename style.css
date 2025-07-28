@@ -330,3 +330,14 @@ body, html {
 .cursor.hide {
   opacity: 0;
 }
+
+/* Artwork scroll-in animation */
+.artwork-item img {
+  opacity: 0;
+  transform: translateX(200px) scale(0.8);
+  transition: opacity 0.8s cubic-bezier(.25,1.7,.45,.87), transform 0.8s cubic-bezier(.25,1.7,.45,.87);
+}
+.artwork-item.artwork-animate-in img {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}

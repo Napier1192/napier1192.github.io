@@ -100,3 +100,20 @@ ScrollReveal().reveal('.project-card', {
   duration: 900,
   interval: 120
 });
+
+// Animate artwork images in from right on scroll
+const artworkItems = document.querySelectorAll('.artwork-item');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('artwork-animate-in');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  artworkItems.forEach(item => observer.observe(item));
+} else {
+  // Fallback: show all if IntersectionObserver not supported
+  artworkItems.forEach(item => item.classList.add('artwork-animate-in'));
+}
