@@ -170,3 +170,140 @@ footer {
 .carousel-nav-buttons button:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+/* Artwork Gallery Styles */
+.artwork-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1000px;
+  justify-items: center;
+}
+.artwork-item {
+  background: rgba(30, 30, 60, 0.7);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(.25,1.7,.45,.87), box-shadow 0.3s;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+.artwork-item img {
+  width: 100%;
+  display: block;
+  border-radius: 18px 18px 0 0;
+  filter: brightness(0.95) saturate(1.2) drop-shadow(0 0 10px #0ff6);
+  transition: filter 0.3s;
+}
+.artwork-item:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 12px 40px 0 #0ff8, 0 0 30px #f0f;
+}
+.artwork-item:hover img {
+  filter: brightness(1.1) saturate(1.4) drop-shadow(0 0 20px #f0f8);
+}
+.artwork-info {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(20, 20, 40, 0.8);
+  border-radius: 0 0 18px 18px;
+  color: #fff;
+  font-size: 1rem;
+}
+.pdf-link {
+  color: #ff5af7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.pdf-link:hover {
+  color: #00fff7;
+  text-shadow: 0 0 8px #0ff, 0 0 4px #f0f;
+}
+
+/* Projects Section Styles */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1000px;
+  justify-items: center;
+}
+.project-card {
+  background: rgba(30, 30, 60, 0.8);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  color: #fff;
+  transition: transform 0.4s cubic-bezier(.25,1.7,.45,.87), box-shadow 0.3s;
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+}
+.project-card:hover {
+  transform: scale(1.04) rotate(1deg);
+  box-shadow: 0 12px 40px 0 #0ff8, 0 0 30px #f0f;
+}
+.project-card h3 {
+  color: #00fff7;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+.project-links {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1.2rem;
+}
+.project-links a {
+  color: #ff5af7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+  font-size: 1.1rem;
+}
+.project-links a:hover {
+  color: #00fff7;
+  text-shadow: 0 0 8px #0ff, 0 0 4px #f0f;
+}
+
+/* Section Headings */
+section h2 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #f0f;
+}
+
+/* Custom Cursor */
+body, html {
+  cursor: none;
+}
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(circle at 30% 30%, #00fff7 60%, #ff5af7 100%);
+  box-shadow: 0 0 24px 8px #00fff7, 0 0 40px 10px #ff5af7;
+  mix-blend-mode: lighten;
+  opacity: 0.85;
+  transition: transform 0.1s cubic-bezier(.25,1.7,.45,.87), opacity 0.2s;
+  transform: translate(-50%, -50%) scale(1);
+}
+.cursor.click {
+  transform: translate(-50%, -50%) scale(0.7);
+  opacity: 0.6;
+}
+.cursor.hide {
+  opacity: 0;
+}

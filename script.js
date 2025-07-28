@@ -63,3 +63,40 @@ ScrollReveal().reveal('.scroll-delay-5', {
   duration: 1000,
   delay: 2500
 });
+
+// Custom Cursor
+const cursor = document.createElement('div');
+cursor.classList.add('cursor');
+document.body.appendChild(cursor);
+
+window.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  cursor.classList.remove('hide');
+});
+window.addEventListener('mousedown', () => {
+  cursor.classList.add('click');
+});
+window.addEventListener('mouseup', () => {
+  cursor.classList.remove('click');
+});
+window.addEventListener('mouseleave', () => {
+  cursor.classList.add('hide');
+});
+window.addEventListener('mouseenter', () => {
+  cursor.classList.remove('hide');
+});
+
+// ScrollReveal for new sections
+ScrollReveal().reveal('.artwork-item', {
+  distance: "40px",
+  opacity: 0,
+  duration: 900,
+  interval: 120
+});
+ScrollReveal().reveal('.project-card', {
+  distance: "40px",
+  opacity: 0,
+  duration: 900,
+  interval: 120
+});
