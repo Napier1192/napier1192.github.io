@@ -43,14 +43,6 @@ p {
   color: #ccc;
 }
 
-footer {
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  color: #aaa;
-  text-align: left;
-  width: 100%;
-  position: static;
-}
 
 .resume-btn {
   position: fixed;
@@ -341,3 +333,62 @@ body, html {
   opacity: 1;
   transform: translateX(0) scale(1);
 }
+
+/* First artwork special animation */
+.artwork-item.first-artwork img {
+  transform: translateY(120px) scale(0.7);
+}
+.artwork-item.first-artwork.artwork-animate-in img {
+  transform: translateY(0) scale(1.08);
+  opacity: 1;
+}
+
+/* Second artwork special animation */
+.artwork-item.second-artwork img {
+  opacity: 0;
+  transform: translateX(200px) scale(0.7);
+}
+.artwork-item.second-artwork.artwork-animate-in img {
+  opacity: 1;
+  transform: translateX(0) scale(1.08);
+}
+
+/* Third artwork special animation */
+.artwork-item.third-artwork img {
+  opacity: 0;
+  transform: translateX(200px) scale(0.7);
+}
+.artwork-item.third-artwork.artwork-animate-in img {
+  opacity: 1;
+  transform: translateX(0) scale(1.08);
+}
+
+/* Transparent vertical scrollbar */
+body::-webkit-scrollbar {
+  width: 12px;
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.12);
+  border-radius: 6px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.12) transparent;
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: left;
+  width: 100%;
+  position: static;
+}
+
