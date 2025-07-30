@@ -29,10 +29,6 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="videos/intro.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="hero-title">Kartikaye</h1>
       <p class="hero-subtitle">Physicist | Hobbyist</p>
@@ -265,25 +261,16 @@
     <div class="container">
       <h2 class="section-title">YouTube Content</h2>
       
-      <!-- Featured Video -->
-      <div class="featured-video">
-        <div class="featured-video-container">
-          <video controls poster="images/video-poster.jpg">
+      <!-- Floating Video Bubble -->
+      <div class="floating-video-bubble" id="videoBubble">
+        <div class="bubble-content">
+          <video autoplay muted loop playsinline>
             <source src="videos/intro.mp4" type="video/mp4">
-            Your browser does not support the video tag.
           </video>
-          <div class="featured-video-overlay">
-            <div class="play-button">
-              <i class="fas fa-play"></i>
+          <div class="bubble-overlay">
+            <div class="bubble-close" onclick="closeVideoBubble()">
+              <i class="fas fa-times"></i>
             </div>
-          </div>
-        </div>
-        <div class="featured-video-info">
-          <h3>Channel Intro Animation</h3>
-          <p>My custom 6-second intro animation for my YouTube channel</p>
-          <div class="video-stats">
-            <span><i class="fas fa-clock"></i> 6 seconds</span>
-            <span><i class="fas fa-palette"></i> Custom Animation</span>
           </div>
         </div>
       </div>

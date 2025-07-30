@@ -260,76 +260,57 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Featured Video functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const featuredVideo = document.querySelector('.featured-video-container video');
-  const playButton = document.querySelector('.play-button');
-  const videoOverlay = document.querySelector('.featured-video-overlay');
-  
-  if (featuredVideo && playButton) {
-    // Play button click handler
-    playButton.addEventListener('click', function() {
-      if (featuredVideo.paused) {
-        featuredVideo.play();
-        videoOverlay.style.opacity = '0';
-      } else {
-        featuredVideo.pause();
-        videoOverlay.style.opacity = '1';
-      }
-    });
-    
-    // Video event handlers
-    featuredVideo.addEventListener('play', function() {
-      videoOverlay.style.opacity = '0';
-      playButton.innerHTML = '<i class="fas fa-pause"></i>';
-    });
-    
-    featuredVideo.addEventListener('pause', function() {
-      videoOverlay.style.opacity = '1';
-      playButton.innerHTML = '<i class="fas fa-play"></i>';
-    });
-    
-    featuredVideo.addEventListener('ended', function() {
-      videoOverlay.style.opacity = '1';
-      playButton.innerHTML = '<i class="fas fa-play"></i>';
-    });
-    
-    // Hover effects
-    const featuredVideoContainer = document.querySelector('.featured-video-container');
-    if (featuredVideoContainer) {
-      featuredVideoContainer.addEventListener('mouseenter', function() {
-        if (featuredVideo.paused) {
-          videoOverlay.style.opacity = '1';
-        }
-      });
+// Floating Video Bubble functionality
+let bubbleShown = false;
+
+function showVideoBubble() {
+  if (!bubbleShown) {
+    const bubble = document.getElementById('videoBubble');
+    if (bubble) {
+      bubble.classList.add('show');
+      bubbleShown = true;
       
-      featuredVideoContainer.addEventListener('mouseleave', function() {
-        if (!featuredVideo.paused) {
-          videoOverlay.style.opacity = '0';
+      // Auto-hide after 6 seconds (video duration)
+      setTimeout(() => {
+        closeVideoBubble();
+      }, 6000);
+    }
+  }
+}
+
+function closeVideoBubble() {
+  const bubble = document.getElementById('videoBubble');
+  if (bubble) {
+    bubble.classList.remove('show');
+    bubbleShown = false;
+  }
+}
+
+// Show bubble when scrolling to YouTube section
+document.addEventListener('DOMContentLoaded', function() {
+  const videosSection = document.getElementById('videos');
+  const bubble = document.getElementById('videoBubble');
+  
+  if (videosSection && bubble) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !bubbleShown) {
+          // Small delay to make it feel more natural
+          setTimeout(() => {
+            showVideoBubble();
+          }, 500);
         }
       });
-    }
+    }, { threshold: 0.3 });
+    
+    observer.observe(videosSection);
   }
 });
 
-// Hero video enhancement
-document.addEventListener('DOMContentLoaded', function() {
-  const heroVideo = document.querySelector('.hero-video');
-  if (heroVideo) {
-    // Add subtle parallax effect to hero video
-    window.addEventListener('scroll', function() {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * -0.5;
-      heroVideo.style.transform = `translateY(${rate}px)`;
-    });
-    
-    // Ensure video loads properly
-    heroVideo.addEventListener('loadeddata', function() {
-      heroVideo.style.opacity = '1';
-    });
-    
-    // Add loading state
-    heroVideo.style.opacity = '0';
-    heroVideo.style.transition = 'opacity 1s ease';
+// Close bubble when clicking outside
+document.addEventListener('click', function(e) {
+  const bubble = document.getElementById('videoBubble');
+  if (bubble && bubbleShown && !bubble.contains(e.target)) {
+    closeVideoBubble();
   }
 });
