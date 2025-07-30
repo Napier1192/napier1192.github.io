@@ -823,97 +823,21 @@ body, html {
   transform: scale(1.02);
 }
 
-/* Floating Video Bubble */
-.floating-video-bubble {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
+/* Simple Video Tab */
+.video-tab {
+  margin-bottom: 3rem;
+  border-radius: var(--border-radius);
   overflow: hidden;
-  z-index: 10000;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 20px 60px rgba(0, 255, 247, 0.3);
-  border: 2px solid var(--primary-color);
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.floating-video-bubble.show {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
-  pointer-events: all;
-}
-
-.bubble-content {
-  position: relative;
+.video-tab video {
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.bubble-content video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.bubble-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.floating-video-bubble:hover .bubble-overlay {
-  opacity: 1;
-}
-
-.bubble-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: white;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.bubble-close:hover {
-  background: var(--primary-color);
-  transform: scale(1.1);
-}
-
-/* Bubble animation keyframes */
-@keyframes bubbleFloat {
-  0%, 100% {
-    transform: translate(-50%, -50%) translateY(0px);
-  }
-  50% {
-    transform: translate(-50%, -50%) translateY(-10px);
-  }
-}
-
-.floating-video-bubble.show {
-  animation: bubbleFloat 3s ease-in-out infinite;
+  height: auto;
+  display: block;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
