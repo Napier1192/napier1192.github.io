@@ -76,11 +76,11 @@
               <span class="tech-tag">Spectroscopy</span>
             </div>
             <div class="project-links">
-              <a href="pdfs/art_portfolio.pdf" target="_blank" class="project-link">
-                <i class="fas fa-file-pdf"></i> Documentation
+              <a href="pdfs/spp.pdf" target="_blank" class="project-link">
+                <i class="fas fa-file-pdf"></i> Report
               </a>
-              <a href="https://github.com/napier1192/art-portfolio" target="_blank" class="project-link">
-                <i class="fab fa-github"></i> GitHub
+              <a href="pdfs/spr.pdf" target="_blank" class="project-link">
+                <i class="fas fa-file-pdf"></i> PPT
               </a>
             </div>
           </div>
@@ -180,6 +180,77 @@
               <i class="fas fa-file-pdf"></i> Guide
             </a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artwork Carousel Section -->
+  <section id="artwork-carousel" class="section">
+    <div class="container">
+      <h2 class="section-title">More Artwork</h2>
+      <div class="artwork-carousel">
+        <div class="carousel-container">
+          <div class="carousel-track" id="artworkCarousel">
+            <div class="carousel-item">
+              <img src="images/artwork1.jpg" alt="Artwork 1" loading="lazy">
+              <div class="carousel-overlay">
+                <h3>"Digital Landscape"</h3>
+                <p>Abstract digital composition</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/artwork2.jpg" alt="Artwork 2" loading="lazy">
+              <div class="carousel-overlay">
+                <h3>"Neon Dreams"</h3>
+                <p>Cyberpunk-inspired artwork</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/artwork3.jpg" alt="Artwork 3" loading="lazy">
+              <div class="carousel-overlay">
+                <h3>"Retro Vibes"</h3>
+                <p>Vintage aesthetic digital art</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/artwork4.jpg" alt="Artwork 4" loading="lazy">
+              <div class="carousel-overlay">
+                <h3>"Abstract Flow"</h3>
+                <p>Fluid motion digital painting</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/artwork5.jpg" alt="Artwork 5" loading="lazy">
+              <div class="carousel-overlay">
+                <h3>"Geometric Harmony"</h3>
+                <p>Mathematical precision meets art</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="images/artwork6.jpg" alt="Artwork 6" loading="lazy">
+              <div class="carousel-overlay">
+                <h3>"Color Theory"</h3>
+                <p>Exploration of color relationships</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="carousel-dots" id="carouselDots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+            <span class="dot" onclick="goToSlide(3)"></span>
+            <span class="dot" onclick="goToSlide(4)"></span>
+            <span class="dot" onclick="goToSlide(5)"></span>
+          </div>
+          <button class="carousel-btn next-btn" onclick="moveCarousel(1)">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
       </div>
     </div>

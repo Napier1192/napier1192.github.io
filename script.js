@@ -183,3 +183,79 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+// Artwork Carousel functionality
+let currentSlide = 0;
+const carouselTrack = document.getElementById('artworkCarousel');
+const dots = document.querySelectorAll('.dot');
+const totalSlides = document.querySelectorAll('.carousel-item').length;
+
+function moveCarousel(direction) {
+  currentSlide += direction;
+  
+  if (currentSlide < 0) {
+    currentSlide = totalSlides - 1;
+  } else if (currentSlide >= totalSlides) {
+    currentSlide = 0;
+  }
+  
+  updateCarousel();
+}
+
+function goToSlide(slideIndex) {
+  currentSlide = slideIndex;
+  updateCarousel();
+}
+
+function updateCarousel() {
+  const slideWidth = 100 / getVisibleSlides();
+  const translateX = -currentSlide * slideWidth;
+  
+  if (carouselTrack) {
+    carouselTrack.style.transform = `translateX(${translateX}%)`;
+  }
+  
+  // Update dots
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentSlide);
+  });
+}
+
+function getVisibleSlides() {
+  if (window.innerWidth >= 1024) {
+    return 3; // Desktop: 3 slides visible
+  } else if (window.innerWidth >= 768) {
+    return 2; // Tablet: 2 slides visible
+  } else {
+    return 1; // Mobile: 1 slide visible
+  }
+}
+
+// Auto-advance carousel
+let carouselInterval;
+
+function startCarouselAutoAdvance() {
+  carouselInterval = setInterval(() => {
+    moveCarousel(1);
+  }, 5000); // Change slide every 5 seconds
+}
+
+function stopCarouselAutoAdvance() {
+  clearInterval(carouselInterval);
+}
+
+// Initialize carousel
+document.addEventListener('DOMContentLoaded', function() {
+  if (carouselTrack) {
+    startCarouselAutoAdvance();
+    
+    // Pause auto-advance on hover
+    carouselTrack.addEventListener('mouseenter', stopCarouselAutoAdvance);
+    carouselTrack.addEventListener('mouseleave', startCarouselAutoAdvance);
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      updateCarousel();
+    });
+  }
+});
