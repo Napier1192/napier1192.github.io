@@ -259,3 +259,77 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// Featured Video functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const featuredVideo = document.querySelector('.featured-video-container video');
+  const playButton = document.querySelector('.play-button');
+  const videoOverlay = document.querySelector('.featured-video-overlay');
+  
+  if (featuredVideo && playButton) {
+    // Play button click handler
+    playButton.addEventListener('click', function() {
+      if (featuredVideo.paused) {
+        featuredVideo.play();
+        videoOverlay.style.opacity = '0';
+      } else {
+        featuredVideo.pause();
+        videoOverlay.style.opacity = '1';
+      }
+    });
+    
+    // Video event handlers
+    featuredVideo.addEventListener('play', function() {
+      videoOverlay.style.opacity = '0';
+      playButton.innerHTML = '<i class="fas fa-pause"></i>';
+    });
+    
+    featuredVideo.addEventListener('pause', function() {
+      videoOverlay.style.opacity = '1';
+      playButton.innerHTML = '<i class="fas fa-play"></i>';
+    });
+    
+    featuredVideo.addEventListener('ended', function() {
+      videoOverlay.style.opacity = '1';
+      playButton.innerHTML = '<i class="fas fa-play"></i>';
+    });
+    
+    // Hover effects
+    const featuredVideoContainer = document.querySelector('.featured-video-container');
+    if (featuredVideoContainer) {
+      featuredVideoContainer.addEventListener('mouseenter', function() {
+        if (featuredVideo.paused) {
+          videoOverlay.style.opacity = '1';
+        }
+      });
+      
+      featuredVideoContainer.addEventListener('mouseleave', function() {
+        if (!featuredVideo.paused) {
+          videoOverlay.style.opacity = '0';
+        }
+      });
+    }
+  }
+});
+
+// Hero video enhancement
+document.addEventListener('DOMContentLoaded', function() {
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    // Add subtle parallax effect to hero video
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * -0.5;
+      heroVideo.style.transform = `translateY(${rate}px)`;
+    });
+    
+    // Ensure video loads properly
+    heroVideo.addEventListener('loadeddata', function() {
+      heroVideo.style.opacity = '1';
+    });
+    
+    // Add loading state
+    heroVideo.style.opacity = '0';
+    heroVideo.style.transition = 'opacity 1s ease';
+  }
+});
