@@ -22,98 +22,164 @@ function scrollCarousel(direction) {
     left: direction * scrollAmount,
     behavior: 'smooth'
   });
-}// Scroll animations using ScrollReveal
-ScrollReveal().reveal('.scroll-animation', {
-  distance: "50px",
-  opacity: 0,
-  duration: 1000
-});
-
-ScrollReveal().reveal('.scroll-delay-1', {
-  distance: "50px",
-  opacity: 0,
-  duration: 1000,
-  delay: 500
-});
-
-ScrollReveal().reveal('.scroll-delay-2', {
-  distance: "50px",
-  opacity: 0,
-  duration: 1000,
-  delay: 1000
-});
-
-ScrollReveal().reveal('.scroll-delay-3', {
-  distance: "50px",
-  opacity: 0,
-  duration: 1000,
-  delay: 1500
-});
-
-ScrollReveal().reveal('.scroll-delay-4', {
-  distance: "50px",
-  opacity: 0,
-  duration: 1000,
-  delay: 2000
-});
-
-ScrollReveal().reveal('.scroll-delay-5', {
-  distance: "50px",
-  opacity: 0,
-  duration: 1000,
-  delay: 2500
-});
+}
 
 // Custom Cursor
 const cursor = document.createElement('div');
 cursor.classList.add('cursor');
 document.body.appendChild(cursor);
 
-window.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-  cursor.classList.remove('hide');
-});
-window.addEventListener('mousedown', () => {
-  cursor.classList.add('click');
-});
-window.addEventListener('mouseup', () => {
-  cursor.classList.remove('click');
-});
-window.addEventListener('mouseleave', () => {
-  cursor.classList.add('hide');
-});
-window.addEventListener('mouseenter', () => {
-  cursor.classList.remove('hide');
+let mouseX = 0;
+let mouseY = 0;
+let cursorX = 0;
+let cursorY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
 });
 
-// ScrollReveal for new sections
-ScrollReveal().reveal('.artwork-item', {
-  distance: "40px",
-  opacity: 0,
-  duration: 900,
-  interval: 120
-});
-ScrollReveal().reveal('.project-card', {
-  distance: "40px",
-  opacity: 0,
-  duration: 900,
-  interval: 120
-});
-
-// Animate artwork images in from right on scroll
-const artworkItems = document.querySelectorAll('.artwork-item');
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('artwork-animate-in');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-  artworkItems.forEach(item => observer.observe(item));
-} else {
-  // Fallback: show all if IntersectionObserver not supported
-  artworkItems.forEach(item => item.classList.add('artwork-animate-in'));
+function updateCursor() {
+  cursorX += (mouseX - cursorX) * 0.1;
+  cursorY += (mouseY - cursorY) * 0.1;
+  
+  cursor.style.left = cursorX + 'px';
+  cursor.style.top = cursorY + 'px';
 }
+
+function animateCursor() {
+  updateCursor();
+  requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Navbar background on scroll
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 100) {
+    navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+  } else {
+    navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+  }
+});
+
+// Scroll animations using ScrollReveal
+ScrollReveal().reveal('.section-title', {
+  distance: '50px',
+  opacity: 0,
+  duration: 1000,
+  origin: 'bottom'
+});
+
+ScrollReveal().reveal('.project-card', {
+  distance: '30px',
+  opacity: 0,
+  duration: 800,
+  interval: 200,
+  origin: 'bottom'
+});
+
+ScrollReveal().reveal('.personal-project', {
+  distance: '30px',
+  opacity: 0,
+  duration: 800,
+  interval: 200,
+  origin: 'bottom'
+});
+
+ScrollReveal().reveal('.artwork-item', {
+  distance: '40px',
+  opacity: 0,
+  duration: 1000,
+  interval: 300,
+  origin: 'right'
+});
+
+ScrollReveal().reveal('.video-card', {
+  distance: '30px',
+  opacity: 0,
+  duration: 800,
+  interval: 200,
+  origin: 'bottom'
+});
+
+// Intersection Observer for custom animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+// Observe elements for custom animations
+document.querySelectorAll('.project-card, .personal-project, .artwork-item, .video-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+
+// Parallax effect for hero section
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+  }
+});
+
+// Active navigation link highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (window.pageYOffset >= sectionTop - 200) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// Add active state styles
+const style = document.createElement('style');
+style.textContent = `
+  .nav-links a.active {
+    color: var(--primary-color) !important;
+  }
+  .nav-links a.active::after {
+    width: 100% !important;
+  }
+`;
+document.head.appendChild(style);

@@ -1,123 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kartikaye | Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-mRyL4k8a4n4ufFjqFyGxEhtmcO7n5/v49w6CeFczzbZ4VzjmwKXlY7ZMHZ+LgWciMJCIwN91DbwZc+nNBw1TA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- Resume Button -->
-  <a class="resume-btn" href="pdfs/resume.pdf" target="_blank">View Resume</a>
-
-  <!-- Floating Social Icons -->
-  <div class="icon-links">
-    <a href="https://www.youtube.com/@KartikayeDoesStuff" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.linkedin.com/in/kartikaye-796ab1112/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.instagram.com/napier1192/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.fiverr.com/lumosminima/vector-trace-illustrate-make-vaporwave-and-outurn-style-art" target="_blank"><i class="fas fa-briefcase"></i></a>
-  </div>
-
-  <!-- Main Website Content -->
-  <div id="main-content" style="opacity: 1; pointer-events: auto;">
-    <h1 class="fade-in">Kartikaye</h1>
-    <p class="fade-in">Physicist | Hobbyist</p>
-
-    <div class="youtube-carousel-container">
-      <div class="youtube-carousel-track" id="youtubeTrack">
-        <div class="youtube-tile">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
-        </div>
-        <div class="youtube-tile">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
-        </div>
-        <div class="youtube-tile">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="carousel-nav-buttons">
-        <button onclick="scrollCarousel(-1)">&#10094;</button>
-        <button onclick="scrollCarousel(1)">&#10095;</button>
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="#home" class="nav-logo">Kartikaye</a>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#personal">Personal</a>
+        <a href="#artwork">Artwork</a>
+        <a href="#videos">Videos</a>
+        <a href="pdfs/resume.pdf" target="_blank" class="resume-link">Resume</a>
       </div>
     </div>
+  </nav>
 
-   
-
-    <!-- Artwork Section -->
-    <section id="artwork" class="scroll-animation">
-      <h2 class="fade-in">Artwork Gallery</h2>
-      <div class="artwork-grid">
-        <div class="artwork-item first-artwork">
-          <img src="images/art1.png" alt="Artwork 1">
-          <div class="artwork-info">
-            <span>"Vaporwave Dream"</span>
-          </div>
-        </div>
-        <div class="artwork-item second-artwork">
-          <img src="images/art2.png" alt="Artwork 2">
-          <div class="artwork-info">
-            <span>"Neon City"</span>
-          </div>
-        </div>
-        <div class="artwork-item third-artwork">
-          <img src="images/art3.png" alt="Artwork 3">
-          <div class="artwork-info">
-            <span>"Retro Grid"</span>
-          </div>
-        </div>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Kartikaye</h1>
+      <p class="hero-subtitle">Physicist | Hobbyist</p>
+      <div class="hero-description">
+        <p>Exploring the intersection of physics, art, and technology</p>
       </div>
-    </section>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="scroll-animation">
-      <h2 class="fade-in">Projects</h2>
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
       <div class="projects-grid">
         <div class="project-card">
-          <h3>Physics Simulator</h3>
-          <p>Interactive web-based physics engine for visualizing mechanics problems.</p>
-          <div class="project-links">
-            <a href="pdfs/physics_simulator.pdf" target="_blank" class="pdf-link"><i class="fas fa-file-pdf"></i> PDF</a>
-            <a href="https://github.com/napier1192/physics-simulator" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <div class="project-content">
+            <h3>Physics Simulator</h3>
+            <p>Interactive web-based physics engine for visualizing mechanics problems and complex systems.</p>
+            <div class="project-tech">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Canvas</span>
+              <span class="tech-tag">Physics</span>
+            </div>
+            <div class="project-links">
+              <a href="pdfs/physics_simulator.pdf" target="_blank" class="project-link">
+                <i class="fas fa-file-pdf"></i> Documentation
+              </a>
+              <a href="https://github.com/napier1192/physics-simulator" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
           </div>
         </div>
+
         <div class="project-card">
-          <h3>Art Portfolio Site</h3>
-          <p>Personal website to showcase digital and vaporwave-inspired artwork.</p>
-          <div class="project-links">
-            <a href="pdfs/art_portfolio.pdf" target="_blank" class="pdf-link"><i class="fas fa-file-pdf"></i> PDF</a>
-            <a href="https://github.com/napier1192/art-portfolio" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <div class="project-content">
+            <h3>Art Portfolio Site</h3>
+            <p>Personal website showcasing digital and vaporwave-inspired artwork with modern web technologies.</p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML/CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Design</span>
+            </div>
+            <div class="project-links">
+              <a href="pdfs/art_portfolio.pdf" target="_blank" class="project-link">
+                <i class="fas fa-file-pdf"></i> Documentation
+              </a>
+              <a href="https://github.com/napier1192/art-portfolio" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
           </div>
         </div>
+
         <div class="project-card">
-          <h3>Science Blog</h3>
-          <p>Blog platform for sharing physics experiments, notes, and tutorials.</p>
-          <div class="project-links">
-            <a href="pdfs/science_blog.pdf" target="_blank" class="pdf-link"><i class="fas fa-file-pdf"></i> PDF</a>
-            <a href="https://github.com/napier1192/science-blog" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <div class="project-content">
+            <h3>Science Blog</h3>
+            <p>Blog platform for sharing physics experiments, research notes, and educational tutorials.</p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Education</span>
+            </div>
+            <div class="project-links">
+              <a href="pdfs/science_blog.pdf" target="_blank" class="project-link">
+                <i class="fas fa-file-pdf"></i> Documentation
+              </a>
+              <a href="https://github.com/napier1192/science-blog" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-  </div>
-  <footer>
-    <p>© 2025 Kartikaye</p>
+    </div>
+  </section>
+
+  <!-- Personal Projects Section -->
+  <section id="personal" class="section">
+    <div class="container">
+      <h2 class="section-title">Personal Projects</h2>
+      <div class="personal-projects">
+        <div class="personal-project">
+          <h3>Experimental Physics</h3>
+          <p>Personal experiments and research in quantum mechanics and particle physics.</p>
+          <a href="pdfs/experimental_physics.pdf" target="_blank" class="project-link">
+            <i class="fas fa-file-pdf"></i> Research Notes
+          </a>
+        </div>
+        
+        <div class="personal-project">
+          <h3>Digital Art Collection</h3>
+          <p>Curated collection of digital artwork exploring vaporwave and retro aesthetics.</p>
+          <a href="pdfs/art_collection.pdf" target="_blank" class="project-link">
+            <i class="fas fa-file-pdf"></i> Gallery
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artwork Section -->
+  <section id="artwork" class="section">
+    <div class="container">
+      <h2 class="section-title">Artwork Gallery</h2>
+      <div class="artwork-gallery">
+        <div class="artwork-item" data-artwork="1">
+          <img src="images/art1.png" alt="Vaporwave Dream" loading="lazy">
+          <div class="artwork-overlay">
+            <h3>"Vaporwave Dream"</h3>
+            <p>Digital artwork exploring retro aesthetics</p>
+            <a href="pdfs/art1_details.pdf" target="_blank" class="artwork-link">
+              <i class="fas fa-file-pdf"></i> Details
+            </a>
+          </div>
+        </div>
+        
+        <div class="artwork-item" data-artwork="2">
+          <img src="images/art2.png" alt="Neon City" loading="lazy">
+          <div class="artwork-overlay">
+            <h3>"Neon City"</h3>
+            <p>Cyberpunk-inspired digital landscape</p>
+            <a href="pdfs/art2_details.pdf" target="_blank" class="artwork-link">
+              <i class="fas fa-file-pdf"></i> Details
+            </a>
+          </div>
+        </div>
+        
+        <div class="artwork-item" data-artwork="3">
+          <img src="images/art3.png" alt="Retro Grid" loading="lazy">
+          <div class="artwork-overlay">
+            <h3>"Retro Grid"</h3>
+            <p>Geometric patterns with vintage aesthetics</p>
+            <a href="pdfs/art3_details.pdf" target="_blank" class="artwork-link">
+              <i class="fas fa-file-pdf"></i> Details
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YouTube Section -->
+  <section id="videos" class="section">
+    <div class="container">
+      <h2 class="section-title">YouTube Content</h2>
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" 
+                    title="Physics Tutorial" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Physics Tutorial Series</h3>
+            <p>Educational content on mechanics and quantum physics</p>
+          </div>
+        </div>
+        
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" 
+                    title="Art Process" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Digital Art Process</h3>
+            <p>Behind-the-scenes of digital artwork creation</p>
+          </div>
+        </div>
+        
+        <div class="video-card">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" 
+                    title="Science Experiments" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Science Experiments</h3>
+            <p>Hands-on physics experiments and demonstrations</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-links">
+            <a href="https://www.youtube.com/@KartikayeDoesStuff" target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/kartikaye-796ab1112/" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/napier1192/" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.fiverr.com/lumosminima/vector-trace-illustrate-make-vaporwave-and-outurn-style-art" target="_blank">
+              <i class="fas fa-briefcase"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <p>&copy; 2025 Kartikaye. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <!-- jQuery (required for show_story function) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- ScrollReveal animation library -->
-<script src="https://unpkg.com/scrollreveal"></script>
-
-<!-- Your custom script -->
-<script src="script.js"></script>
-
-  <!-- Removed script.js because it's no longer needed -->
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
